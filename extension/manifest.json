@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Transcript Chat",
+  "version": "1.0.0",
+  "description": "Ask questions about YouTube videos using AI-powered transcript analysis",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtu.be/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Transcript Chat"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtu.be/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
